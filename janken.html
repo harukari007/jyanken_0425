@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけん</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/janken.css">
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<body>
+  <main>
+    <section>
+      <h1>じゃ~んけん</h1>
+    </section>
+
+    <section class="kekka">
+      <p id="computerHand">コンピューターの手は</p>
+      <p id="echo"></p>
+    </section>
+
+    <section class="ruru">
+      <p id="result">勝敗</p>
+      <div class="winwin">勝ち:<span id="win">0</span>回</div>
+      <div class="lose">負け:<span id="lose">0</span>回</div>
+      <div class="mount">じゃんけん回数:<span id="mount">0</span>回</div>
+    </section>
+
+    <section>
+      <div>あなた:<span id="player"></span></div>
+      <button id="g">グー</button>
+      <button id="c">チョキ</button>
+      <button id="p">パー</button>
+      <button id="reset">リセット</button>
+    </section>
+
+  </main>
+
+  <script>
+    //勝った回数カウント
+    let Wincaunt = 0;
+
+    //負けた数回数をカウント
+    let Losecaunt = 0;
+
+    //じゃんけんの総回数
+    let charenge = 0;
+
+    //2.if分岐処理
+
+    //ぐー押下
+    $("#g").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      // console.log(randomNumber);
+
+      if (randomNumber === 0) {
+        $("#echo").text('グー');
+        $("#result").text('あいこ')
+      } else if (randomNumber === 1) {
+        $("#echo").text('チョキ')
+        $("#result").text('あなたの勝ち');
+        //勝った時のCaunt+1
+        Wincaunt++;
+      } else if (randomNumber === 2) {
+        $("#echo").text('パー')
+        $("#result").text('あなたの負け');
+        Losecaunt++;
+      }
+      //変数に１づつ加算される（試合の数）
+      charenge++;
+      updateCount();
+
+    });
+
+    //チョキ押下
+    $("#c").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(randomNumber);
+      if (randomNumber === 0) {
+        $("#echo").text('グー');
+        $("#result").text('あなたの負け')
+        Losecaunt++;
+      } else if (randomNumber === 1) {
+        $("#echo").text('チョキ')
+        $("#result").text('あいこ');
+      } else if (randomNumber === 2) {
+        $("#echo").text('パー')
+        $("#result").text('あなたの勝ち');
+        Wincaunt++;
+      }
+      charenge++;
+      updateCount();
+    });
+
+    //パー押下
+    $("#p").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(randomNumber);
+      if (randomNumber === 0) {
+        $("#echo").text('グー');
+        $("#result").text('あなたの勝ち')
+        Wincaunt++;
+      } else if (randomNumber === 1) {
+        $("#echo").text('チョキ')
+        $("#result").text('あなたの負け');
+        Losecaunt++;
+      } else if (randomNumber === 2) {
+        $("#echo").text('パー')
+        $("#result").text('あいこ');
+      }
+      charenge++;
+      updateCount();
+    });
+
+    //リセットボタン押下
+    $("#reset").on("click", function () {
+      Wincaunt = 0;
+      Losecaunt = 0;
+      charenge = 0;
+      updateCount();
+    });
+
+
+    //結果の表示を更新する関数
+    function updateCount() {
+      //じゃんけんの総回数
+      $("#mount").text(charenge);
+      //じゃんけんの勝ち数
+      $("#win").text(Wincaunt);
+      //じゃんけんの負け数
+      $("#lose").text(Losecaunt);
+    }
+    //3.表示処理
+    //勝敗の結果
+    $("#echo").html(view);
+  </script>
+</body>
+
+</html>

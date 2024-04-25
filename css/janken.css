@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100px;
+  height: 70px;
+}
+
+main {
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+section {
+  height: calc(100vh/4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.winwin {
+  margin: auto;
+  background-color: red;
+}
+
+.lose {
+  margin: auto;
+  background-color: yellow;
+}
+
+.mount {
+  margin: auto;
+  background-color: aqua;
+}
+
+.ruru {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#computerHand {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+#echo {
+  font-size: 40px;
+  font-weight: 600;
+  color: blue;
+
+}
+/* じゃんけん勝敗結果 */
+#result {
+  font-size: 40px;
+  font-weight: 400;
+  color: #222000;
+  text-shadow: 2px 2px 2px #dddd;
+  background-color: coral;
+}
+
+/* 結果エリア */
+.kekka {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: ;
+
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<body>
+  <main>
+
+    <section class="title_section">
+      <h1>おみくじ</h1>
+    </section>
+
+    <section class="result_section" id="result">
+      <p>結果は？？</p>
+      <p id="echo"></p>
+    </section>
+
+    <section class="button_section">
+      <button id="omikuji">おみくじをひく</button>
+    </section>
+
+  </main>
+
+  <script>
+    // alert("text1 + text2");
+
+    // 検証画面に何か表示される
+    // const number1 = 100;
+    // const number2 = 200;
+    // console.log(number1 + number2);
+
+    // 記号はエスケープ処理すると
+    // const text1 = "G's";
+    // const text2 = "ACADEMY";
+    // console.log(text1 + text2)
+
+    // 後から上書きできる変数
+
+
+    // 0から4までのどれかが表示される！
+    // const randomNumber2 = Math.floor(Math.random() * 5);
+    // alert(randomNumber2);
+
+    // 問題 1	0~9
+    // const randomNumber2 = Math.floor(Math.random() * 10);
+    //   alert(randomNumber2);
+
+    // 問題 2	1	9
+    // const randomNumber = Math.floor(Math.random() * 9) + 1;
+    //   alert(randomNumber);
+
+    // 問題 3	5	10
+    // const min = 5;
+    // const max = 10;
+    // const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    // alert(randomNumber);
+
+
+    // 問題 4	50	99
+    // const min = 50;
+    // const max = 99;
+    // const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    // alert(randomNumber);
+
+
+    // const min = 0;
+    // const max = 4;
+    // const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    // console.log(randomNumber);
+
+    // // 0→大吉 １中吉 2小吉 3凶 4大凶
+
+    // // 条件分岐
+    // if (randomNumber === 0) {
+    //   alert('大吉')
+    //   // 条件を満たす場合の処理
+    // } else if (randomNumber === 1) {
+    //   alert('中吉')
+    // } else if (randomNumber === 2) {
+    //   alert('小吉')
+    // } else if (randomNumber === 3) {
+    //   alert('凶')
+    // } else if (randomNumber === 4) {
+    //   alert('大凶')
+    // }
+
+
+    // const min = 0;
+    // const max = 99;
+    // const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    // if (randomNumber < 10) {
+    //   alert('大吉');
+    // } else if (randomNumber < 30) {
+    //   alert('中吉');
+    // } else if (randomNumber < 60) {
+    //   alert('小吉');
+    // } else if (randomNumber < 80) {
+    //   alert('凶');
+    // } else if (randomNumber < 90) {
+    //   alert('大凶');
+    // } else {
+    //   alert('お前はもう死んでいる');
+    // }
+
+
+    // $("#omikuji").on("click", function () {
+    //   const min = 0;
+    //   const max = 99;
+    //   const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    //   if (randomNumber < 10) {
+    //     // alert('大吉');
+    //     $("#result").text('大吉');
+    //   } else if (randomNumber < 30) {
+    //     // alert('中吉');
+    //     $("#result").text('中吉');
+    //   } else if (randomNumber < 60) {
+    //     // alert('小吉');
+    //     $("#result").text('小吉');
+    //   } else if (randomNumber < 80) {
+    //     // alert('凶');
+    //     $("#result").text('凶');
+    //   } else if (randomNumber < 90) {
+    //     // alert('大凶');
+    //     $("#result").text('大凶');
+    //   } else {
+    //     alert('OK');
+    //   }
+    //   // ...
+    // });
+
+    $("#omikuji").on("click", function () {
+      //1.乱数（1~5）
+      const r = Math.ceil(Math.random() * 5);
+
+      //2.if分岐処理
+      let view = "";
+      if (r == 1) {
+        view = '<img src="omikuji_daikichi.png" width="300">'
+      }
+
+      if (r == 2) {
+        view = '中吉'
+      }
+
+      if (r == 3) {
+        view = '小吉'
+      }
+
+      if (r == 4) {
+        view = '吉'
+      }
+
+      if (r == 5) {
+        view = '凶'
+      }
+
+      //3.表示処理
+      $("#echo").html(view);
+
+
+    });
+
+  </script>
+
+
+
+</body>
+
+</html>
